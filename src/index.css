@@ -439,16 +439,26 @@ section {
   border-radius: 12px;
   transition: var(--transition-smooth);
   cursor: pointer;
+  backdrop-filter: blur(8px);
 }
 
 .skill-card img,
 .skill-card i {
-  width: 48px;
-  height: 48px;
-  font-size: 48px;
+  width: 50px;
+  height: 50px;
+  font-size: 50px;
   object-fit: contain;
   margin-bottom: 12px;
   transition: var(--transition-smooth);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Brighten dark-themed SVG logos for 100% visibility on dark background */
+.skill-card img[src*="amazonwebservices"],
+.skill-card img[src*="jenkins"],
+.skill-card img[src*="git"],
+.skill-card img[src*="postman"] {
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5)) brightness(1.15);
 }
 
 .skill-card span {
@@ -463,17 +473,143 @@ section {
   transform: translateY(-8px);
   border-color: var(--border-hover);
   box-shadow: var(--card-shadow), var(--glow-shadow);
-  background: rgba(30, 41, 59, 0.45);
+  background: rgba(30, 41, 59, 0.55);
 }
 
 .skill-card:hover img,
 .skill-card:hover i {
   transform: scale(1.15);
-  filter: drop-shadow(0 0 8px var(--accent-color));
+  filter: drop-shadow(0 0 10px var(--accent-color));
 }
 
 .skill-card:hover span {
   color: var(--text-primary);
+}
+
+/* Certifications Grid & Card Styling */
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.cert-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: var(--transition-smooth);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+}
+
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-gradient);
+  opacity: 0.8;
+  transition: var(--transition-smooth);
+}
+
+.cert-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.cert-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 14px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: var(--transition-smooth);
+}
+
+.cert-info h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+}
+
+.cert-issuer {
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cert-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-weight: 600;
+}
+
+.cert-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cert-tag {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.cert-verify-btn {
+  width: 100%;
+  font-size: 0.88rem;
+  padding: 0.65rem 1rem;
+  margin-top: auto;
+  border-radius: 8px;
+}
+
+.cert-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-hover);
+  box-shadow: var(--card-shadow), var(--glow-shadow);
+  background: rgba(30, 41, 59, 0.5);
+}
+
+.cert-card:hover .cert-logo {
+  transform: scale(1.08) rotate(3deg);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
+}
+
+.cert-card:hover::before {
+  height: 5px;
+  box-shadow: 0 0 15px var(--accent-color);
 }
 
 /* Counter display area */

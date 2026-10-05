@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CONFIG } from '../config';
 import { HeroGraphic, AboutGraphic } from '../components/AnimatedSvg';
+import testngLogo from '../assets/certs/testng.svg';
+import oracleLogo from '../assets/certs/oracle_logo.png';
+import awsLogo from '../assets/certs/aws_logo.png';
+import aviatrixLogo from '../assets/certs/aviatrix_logo.png';
+import ciscoLogo from '../assets/certs/cisco_logo.png';
+import githubLogo from '../assets/certs/github_logo.png';
 
 const Home = () => {
   // Typewriter effect
@@ -93,24 +99,63 @@ const Home = () => {
     { name: "Python", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
     { name: "Java", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" },
     { name: "JavaScript", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
-    // { name: "Ruby", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-original.svg" },
     { name: "Selenium", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/selenium/selenium-original.svg" },
+    { name: "Playwright", url: "https://api.iconify.design/logos:playwright.svg" },
+    { name: "TestNG", url: testngLogo },
+    { name: "Maven", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" },
     { name: "AWS", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
-    // { name: "Ansible", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ansible/ansible-original.svg" },
     { name: "Kubernetes", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg" },
     { name: "Linux", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" },
-    // { name: "Pytest", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytest/pytest-original.svg" },
-    // { name: "Cypress", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cypressio/cypressio-original.svg" },
-    // { name: "Azure SQL", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" },
     { name: "Terraform", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/terraform/terraform-original.svg" },
     { name: "Docker", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
-    { name: "Jenkins", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-line.svg" },
-    { name: "Git", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg" },
-    // { name: "Mocha", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mocha/mocha-original.svg" },
-    { name: "Postman", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-plain.svg" },
-    { name: "Grafana", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original-wordmark.svg" },
-    { name: "GCP", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original-wordmark.svg" },
-    { name: "Prometheus", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original-wordmark.svg" }
+    { name: "Jenkins", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg" },
+    { name: "Git", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
+    { name: "Postman", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" },
+    { name: "Grafana", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/grafana/grafana-original.svg" },
+    { name: "Prometheus", url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prometheus/prometheus-original.svg" }
+  ];
+
+  const certificationsList = [
+    {
+      title: "AWS Solution Architect Associate",
+      issuer: "Amazon Web Services",
+      logo: awsLogo,
+      date: "Certified",
+      skills: ["Cloud Architecture", "AWS Services", "VPC & Security", "Scalability"],
+      link: CONFIG.socials.linkedin
+    },
+    {
+      title: "GitHub Foundation",
+      issuer: "GitHub",
+      logo: githubLogo,
+      date: "Certified",
+      skills: ["Git", "GitHub Actions", "Repository Mgmt", "DevOps"],
+      link: CONFIG.socials.linkedin
+    },
+    {
+      title: "OCI 2024 Certified Foundations Associate",
+      issuer: "Oracle Cloud Infrastructure",
+      logo: oracleLogo,
+      date: "Certified",
+      skills: ["OCI Core Services", "Compute & Networking", "Security", "Identity"],
+      link: CONFIG.socials.linkedin
+    },
+    {
+      title: "Multicloud Network Associate - Aviatrix",
+      issuer: "Aviatrix",
+      logo: aviatrixLogo,
+      date: "Certified",
+      skills: ["Multicloud Networking", "Transit Routing", "Cloud Security", "MCNA"],
+      link: CONFIG.socials.linkedin
+    },
+    {
+      title: "Network Support and Security - CISCO",
+      issuer: "Cisco Systems",
+      logo: ciscoLogo,
+      date: "Certified",
+      skills: ["Network Security", "Routing & Switching", "TCP/IP", "Troubleshooting"],
+      link: CONFIG.socials.linkedin
+    }
   ];
 
   return (
@@ -161,7 +206,7 @@ const Home = () => {
               <p>
                 Passionate and driven software professional with a strong background in software automation testing and expertise across diverse DevOps tools. Proficient in building robust automated testing frameworks, conducting performance and security testing, and automating infrastructure deployment to enhance product quality, efficiency, and security.
               </p>
-              <a href={CONFIG.resumeUrl} className="btn btn-primary">
+              <a href={CONFIG.resumeUrl} target="_blank" rel="noreferrer" className="btn btn-primary">
                 <span>Download CV</span> <i className="fas fa-download"></i>
               </a>
             </div>
@@ -180,7 +225,7 @@ const Home = () => {
                   data-aos="zoom-in"
                   data-aos-delay={Math.min(index * 40, 400)}
                 >
-                  <img src={skill.url} alt={skill.name} />
+                  <img src={skill.url} alt={skill.name} className="skill-icon-img" />
                   <span>{skill.name}</span>
                 </div>
               ))}
@@ -193,6 +238,56 @@ const Home = () => {
               </div>
             </div>
           </div>
+
+          {/* Certifications Section */}
+          <div id="certifications" style={{ marginTop: '7rem' }}>
+            <h2 className="section-title text-center" data-aos="fade-up" style={{ textAlign: 'center' }}>
+              Professional <span className="accent-text">Certifications</span>
+            </h2>
+            <p style={{ textAlign: 'center', color: 'var(--text-secondary)', maxWidth: '650px', margin: '0 auto 3rem' }} data-aos="fade-up">
+              Validated industry certifications in Cloud Architecture, Automation, Multicloud Networking, and Infrastructure Security.
+            </p>
+
+            <div className="certifications-grid">
+              {certificationsList.map((cert, index) => (
+                <div
+                  key={index}
+                  className="cert-card"
+                  data-aos="fade-up"
+                  data-aos-delay={Math.min(index * 100, 400)}
+                >
+                  <div className="cert-card-header">
+                    <img src={cert.logo} alt={cert.title} className="cert-logo" />
+                    <div className="cert-info">
+                      <h3>{cert.title}</h3>
+                      <div className="cert-issuer">
+                        <i className="fas fa-award"></i> {cert.issuer}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.2rem' }}>
+                    <span className="cert-badge-tag"><i className="fas fa-check-circle"></i> Verified Credential</span>
+                  </div>
+
+                  <div className="cert-tags">
+                    {cert.skills.map((skill, idx) => (
+                      <span key={idx} className="cert-tag">#{skill}</span>
+                    ))}
+                  </div>
+
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-secondary cert-verify-btn"
+                  >
+                    <i className="fab fa-linkedin" style={{ color: '#0a66c2' }}></i> View on LinkedIn
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -200,3 +295,4 @@ const Home = () => {
 };
 
 export default Home;
+

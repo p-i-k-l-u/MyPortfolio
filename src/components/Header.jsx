@@ -75,6 +75,14 @@ const Header = ({ activeSection, setActiveSection }) => {
             </li>
             <li>
               <a
+                className={`nav-link ${activeSection === 'certifications' ? 'active' : ''}`}
+                onClick={() => scrollToSection('certifications')}
+              >
+                Certifications
+              </a>
+            </li>
+            <li>
+              <a
                 className={`nav-link ${activeSection === 'services' ? 'active' : ''}`}
                 onClick={() => scrollToSection('services')}
               >
@@ -83,7 +91,7 @@ const Header = ({ activeSection, setActiveSection }) => {
             </li>
             <li>
               <a
-                href="https://github.com/p-i-k-l-u"
+                href={CONFIG.socials.github}
                 target="_blank"
                 rel="noreferrer"
                 className="nav-link"
@@ -121,19 +129,25 @@ const Header = ({ activeSection, setActiveSection }) => {
               About
             </a>
             <a
+              className={`nav-link ${activeSection === 'certifications' ? 'active' : ''}`}
+              onClick={() => scrollToSection('certifications')}
+            >
+              Certifications
+            </a>
+            <a
               className={`nav-link ${activeSection === 'services' ? 'active' : ''}`}
               onClick={() => scrollToSection('services')}
             >
               Services
             </a>
             <a
-              href="https://sumanreddy568.wordpress.com/"
+              href={CONFIG.socials.github}
               target="_blank"
               rel="noreferrer"
               className="nav-link"
               onClick={() => setIsMenuOpen(false)}
             >
-              WordPress
+              Github
             </a>
             <a
               className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}

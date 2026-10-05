@@ -33,7 +33,7 @@ function App() {
         setShowScrollBtn(false);
       }
 
-      const sections = ['home', 'about', 'services', 'contact'];
+      const sections = ['home', 'about', 'certifications', 'services', 'contact'];
       const scrollPosition = window.scrollY + 200; // offset for triggers
 
       for (const sectionId of sections) {
